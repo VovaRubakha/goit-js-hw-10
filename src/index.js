@@ -12,7 +12,7 @@ searchCountry.addEventListener('input', debounce(onSearchCountry), DEBOUNCE_DELA
 
 function onSearchCountry(e) {
   let inputValue = e.target.value.trim();
-  console.log(e.target.value);
+
   fetchCountries(inputValue)
     .then(countries => {
       const countriesAmount = countries.length;
