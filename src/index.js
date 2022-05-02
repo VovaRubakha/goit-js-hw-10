@@ -12,14 +12,13 @@ searchCountry.addEventListener('input', debounce(onSearchCountry), DEBOUNCE_DELA
 
 function onSearchCountry(e) {
   let inputValue = e.target.value.trim();
-
+  if (!inputValue) {
+    return clearMarkup(``);
+  }
   fetchCountries(inputValue)
     .then(countries => {
       const countriesAmount = countries.length;
-      if (countriesAmount === 0) {
-        return;
-      }
-
+      console.log(countriesAmount);
       if (countriesAmount >= 10) {
         return Notiflix.Notify.warning('Be more precise');
       } else if (countriesAmount > 1 && countriesAmount < 10) {
@@ -67,5 +66,8 @@ function renderCountriesInfo(countries) {
         <p><span class="">Languages:</span> ${Object.values(country.languages)}</p>`;
     })
     .join(``);
+  countryInfo.innerHTML = markup;
+}
+function clearMarkup(markup = '') {
   countryInfo.innerHTML = markup;
 }
