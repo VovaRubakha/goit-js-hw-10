@@ -31,3 +31,19 @@ p {
 .country-list li:not(:last-child) {
   margin-bottom: 16px;
 }
+
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.list img {
+  margin-right: 15px;
+}
+.info-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+.info-item {
+  font-weight: 700;
+}
